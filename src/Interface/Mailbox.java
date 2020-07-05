@@ -10,28 +10,28 @@ import org.apache.commons.mail.SimpleEmail;
 public class Mailbox {
 
 	        public String authCode = null;
-			public static String achieveCode() {  //ÓÉÓÚÊı×Ö 1 ¡¢ 0 ºÍ×ÖÄ¸ O ¡¢l ÓĞÊ±·Ö²»Çå³ş£¬ËùÒÔ£¬Ã»ÓĞÊı×Ö 1 ¡¢ 0
+			public static String achieveCode() {  //ç”±äºæ•°å­— 1 ã€ 0 å’Œå­—æ¯ O ã€l æœ‰æ—¶åˆ†ä¸æ¸…æ¥šï¼Œæ‰€ä»¥ï¼Œæ²¡æœ‰æ•°å­— 1 ã€ 0
 				String[] beforeShuffle= new String[] { "0","1","2", "3", "4", "5", "6", "7", "8", "9"};
-				List list = Arrays.asList(beforeShuffle);//½«Êı×é×ª»»Îª¼¯ºÏ
-				Collections.shuffle(list);  //´òÂÒ¼¯ºÏË³Ğò
+				List list = Arrays.asList(beforeShuffle);//å°†æ•°ç»„è½¬æ¢ä¸ºé›†åˆ
+				Collections.shuffle(list);  //æ‰“ä¹±é›†åˆé¡ºåº
 				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < list.size(); i++) {
-				sb.append(list.get(i)); //½«¼¯ºÏ×ª»¯Îª×Ö·û´®
+				sb.append(list.get(i)); //å°†é›†åˆè½¬åŒ–ä¸ºå­—ç¬¦ä¸²
 				}
-				return sb.toString().substring(3, 8);  //½ØÈ¡×Ö·û´®µÚ4µ½8
+				return sb.toString().substring(3, 8);  //æˆªå–å­—ç¬¦ä¸²ç¬¬4åˆ°8
 			}
 			public static void sendAuthCodeEmail(String email, String authCode) {
 		   		try {
 		   	 	SimpleEmail mail = new SimpleEmail();
-		   	 	mail.setHostName("smtp.qq.com");//·¢ËÍÓÊ¼şµÄ·şÎñÆ÷
-		   	 	mail.setAuthentication("2462478392@qq.com","tzqofynqlhibeaae");//¸Õ¸Õ¼ÇÂ¼µÄÊÚÈ¨Âë£¬ÊÇ¿ªÆôSMTPµÄÃÜÂë
-		   	 	mail.setFrom("2462478392@qq.com","±¦¿ÉÃÎÁÄÌìÊÒ");  //·¢ËÍÓÊ¼şµÄÓÊÏäºÍ·¢¼şÈË
-		   	 	mail.setSSLOnConnect(true); //Ê¹ÓÃ°²È«Á´½Ó
-		   	 	mail.addTo(email);//½ÓÊÕµÄÓÊÏä
+		   	 	mail.setHostName("smtp.qq.com");//å‘é€é‚®ä»¶çš„æœåŠ¡å™¨
+		   	 	mail.setAuthentication("2462478392@qq.com","1111");//åˆšåˆšè®°å½•çš„æˆæƒç ï¼Œæ˜¯å¼€å¯SMTPçš„å¯†ç 
+		   	 	mail.setFrom("2462478392@qq.com","å®å¯æ¢¦èŠå¤©å®¤");  //å‘é€é‚®ä»¶çš„é‚®ç®±å’Œå‘ä»¶äºº
+		   	 	mail.setSSLOnConnect(true); //ä½¿ç”¨å®‰å…¨é“¾æ¥
+		   	 	mail.addTo(email);//æ¥æ”¶çš„é‚®ç®±
 		   	 	//System.out.println("email"+email);
-		   	 	mail.setSubject("×¢²áÑéÖ¤Âë");//ÉèÖÃÓÊ¼şµÄÖ÷Ìâ
-		   		mail.setMsg("×ğ¾´µÄÓÃ»§:ÄãºÃ!\n ×¢²áÑéÖ¤ÂëÎª:" + authCode+"\n"+"     ");//ÉèÖÃÓÊ¼şµÄÄÚÈİ
-		   		mail.send();//·¢ËÍ
+		   	 	mail.setSubject("æ³¨å†ŒéªŒè¯ç ");//è®¾ç½®é‚®ä»¶çš„ä¸»é¢˜
+		   		mail.setMsg("å°Šæ•¬çš„ç”¨æˆ·:ä½ å¥½!\n æ³¨å†ŒéªŒè¯ç ä¸º:" + authCode+"\n"+"     ");//è®¾ç½®é‚®ä»¶çš„å†…å®¹
+		   		mail.send();//å‘é€
 		   		} catch (EmailException e) {
 		   			e.printStackTrace();
 		   		}  
